@@ -1,33 +1,16 @@
 provider "aws" {
-  region = "eu-west-2"
-  access_key = "AKIA6BVISBY5KYG6NCXG"
-  secret_key = "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"
+  region                 = "us-east-1"
+  access_key             = "AKIA6BVISBY5KYG6NCXG"
+  secret_key             = "8P+Ql683+bGI0pfGaEnrX+tWZc4ES/azJx0FZUYx"
 }
+resource "aws_instance" "example" {
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
+  ami                    = "ami-0affd4508a5d2481b"
+  instance_type          = "t2.micro"
+  key_name               = "malthumkar"
+  vpc_security_group_ids = ["CentOS 7 -x86_64- - with Updates HVM-2002_01-AutogenByAWSMP-3"]
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+  tags = {
+    name   = "terraform_instance"
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"]
-}
-
-resource "aws_instance" "web" {
-  ami           = "${data.aws_ami.ubuntu.id}"
-  instance_type = "t2.micro"
-
-  tags {
-    Name = "HelloWorld"
-  }
-}
-output "ip"{
-value= "${aws_instance.web.public_ip}"
 }
