@@ -3,11 +3,11 @@
 
 
 variable "access_key" {
-    description = "Your AWS Access Key"
+    description = "AKIAJP5XI3UAHB7XKEGQ"
     default = "<copy-your-access-key-here>"
 }
 
 variable "secret_key" {
-    description = "Your AWS Secret Key"
+    description = "MEq9UxkckwyGO7ozv5IplAeVetspy7EnUWCBhhvV"
     default = "<copy-your-access-key-here>"
 }
