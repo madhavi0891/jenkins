@@ -1,13 +1,13 @@
 provider "aws" {
-  region                 = "us-east-1"
-  access_key             = "AKIA6BVISBY5NV5AGMP7"
-  secret_key             = "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"
+  region                 = "ap-northeast-1"
+  access_key             = "AKIAJP5XI3UAHB7XKEGQ"
+  secret_key             = "MEq9UxkckwyGO7ozv5IplAeVetspy7EnUWCBhhvV"
 }
 resource "aws_instance" "example" {
 
-  ami                    = "ami-0affd4508a5d2481b"
+  ami                    = "ami-078648cce0d33c256"
   instance_type          = "t2.micro"
-  key_name               = "malthumkar"
+  key_name               = "tokyo"
   vpc_security_group_ids = ["Jenkins-SG"]
 
   tags = {
